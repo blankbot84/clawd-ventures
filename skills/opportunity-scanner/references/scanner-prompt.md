@@ -1,69 +1,119 @@
-# Scanner Prompt v2.0 (Phase 1: Discovery + Auto-Roast)
-
-Use this as the cron job message for the opportunity scanner.
+# Scanner Prompt v3.0 (Pre-Flight + Emerging Markets)
 
 ---
 
 Run DEEP micro-SaaS opportunity research.
 
-## LESSONS LEARNED (9 ideas roasted)
+## LESSONS LEARNED (15+ candidates, 0 survivors)
 - Reddit complaints ≠ willingness to pay
 - Free alternatives kill ideas
-- Broad markets are saturated
-- Must verify gaps BEFORE flagging hot
-- Even "validated" ideas can fail deeper scrutiny (Jotboard killed Jamboard idea)
+- Obvious B2B pain points are saturated (VCs funded everything)
+- Pre-flight checks save time — use them
 
-## Search for HIGH-SIGNAL Patterns
+## PHASE 1: Find Candidates
 
-**A. Switching Frustration** - "I've tried A, B, C — all suck because..."
-**B. "I Built My Own"** - Devs maintaining scripts who'd pay to stop
-**C. Integration Gaps** - "Zapier can't do X"
-**D. Dead Product Mourners** - "RIP [product]" (but verify no replacement exists!)
-**E. Spreadsheet Workarounds** - Still manual despite paid tools
-**F. Niche Wedges** - Industry + specific problem = defensible
+### Standard High-Signal Patterns
+- **Switching Frustration** - "I've tried A, B, C — all suck"
+- **"I Built My Own"** - Devs maintaining scripts
+- **Integration Gaps** - "Zapier can't do X"
+- **Dead Product Mourners** - "RIP [product]"
+- **Spreadsheet Workarounds** - Manual despite paid tools
+- **Niche Wedges** - Industry + specific problem
 
-## Pre-Roast Check (REQUIRED)
+### 🚀 NEW: Emerging Platform Signals (High Value)
+Look for NEW ecosystems where:
+- **Platform shift happening** — New tech creates new needs
+- **Community forming** — New Discord servers, subreddits emerging
+- **Developer-first users** — Technical early adopters who pay
+- **VC hasn't arrived** — No $100M+ competitors yet
+- **Rising search trends** — Google Trends going up
 
-Before flagging HOT:
-1. Search "[problem] software" AND "[problem] tool"
-2. Check G2/Capterra/Product Hunt
-3. Search for direct competitors by name
-4. If 3+ established competitors → AUTO-SKIP
-5. Check for FREE alternatives (extensions, open source)
+Examples of emerging platforms:
+- AI agents (Clawdbot, Claude Code, Cursor, etc.)
+- Local LLMs (Ollama, LM Studio ecosystem)
+- Vertical AI (legal AI, medical AI tooling)
+- New APIs creating opportunities
+- New regulations creating compliance needs
 
-## Rating
+---
 
-🔥 **HOT** — Verified gap + payment evidence + niche + <2wk build
-🌡️ **WARM** — Potential but needs validation
-❄️ **COOL** — Skip (saturated or no payment evidence)
+## PHASE 2: PRE-FLIGHT CHECKS
 
-## Output
+Run ALL 6 checks on every candidate:
 
-Update ideas/RESEARCH-LOG.md with findings.
+### 🆓 Check 1: Free Tier Kill
+KILL IF: Major competitor offers free tier solving 80%+
 
-## AUTO-SPAWN VALIDATOR (Required for HOT)
+### 🔌 Check 2: Extension Kill
+KILL IF: Chrome extension with 10K+ users exists
 
-For EVERY 🔥 HOT opportunity, you MUST spawn an Opus v2 validator.
+### 💰 Check 3: Funded Competitor Kill
+KILL IF: Someone raised $10M+ for this exact problem
 
-Use the template from `references/validator-prompt.md` which includes:
+### 🏢 Check 4: Big Player Free Kill
+KILL IF: Google/Microsoft/Amazon offers this free
 
-1. 📊 Market Reality - actual numbers
-2. 🔍 Actual Behavior - what people DO
-3. 💀 Free Alternatives - exhaustive search
-4. 💰 Money Path - who pays
-5. 📈 Demand Signals - trends
-6. ⚠️ Risk Assessment - platform risk
-7. 🏗️ Build Reality - true timeline
+### 🎯 Check 5: Direct Replacement Kill
+KILL IF: Direct clone already exists with traction
 
-```javascript
-sessions_spawn({
-  task: "[Full v2 validator prompt from validator-prompt.md]",
-  agentId: "murphie", // or your agent
-  model: "anthropic/claude-opus-4-5",
-  label: "idea-validator-v2"
-})
-```
+### ⏰ Check 6: Timing Kill
+KILL IF: Dead product >6 months old (migration happened)
 
-**Do NOT skip this step.** Every hot idea MUST be roasted by Opus before reporting to user.
+---
 
-The scanner's job is to find candidates. The validator's job is to kill them. Only survivors matter.
+## PHASE 3: EMERGING PLATFORM BONUS
+
+If opportunity is in an EMERGING platform:
+- Relax Check 3 (funded competitor) — expect less funding
+- Extra credit for: growing community, developer enthusiasm
+- Check: Is the platform itself growing? (Not a dying trend)
+
+---
+
+## PHASE 4: Rating
+
+🔥 **HOT** — Passed all checks + verified gap + payment evidence
+🌡️ **WARM** — Passed checks but small market or needs validation
+❄️ **COOL** — Failed a check or saturated
+
+---
+
+## PHASE 5: Output
+
+Update ideas/RESEARCH-LOG.md with:
+- Each candidate
+- All 6 pre-flight results
+- Kill reason if killed
+- Rating if passed
+
+---
+
+## PHASE 6: Auto-Spawn Validator
+
+For 🔥 HOT opportunities, spawn Opus v2 validator for 7-section deep roast.
+
+---
+
+## NICHE RESEARCH DIRECTIONS
+
+If standard search yields nothing, try:
+
+### A. Hyper-Niche Wedges
+Industry + geography + specific workflow
+- "HIPAA compliance for rural dental practices"
+- "Inventory for Australian food trucks"
+
+### B. API/Integration Gaps
+Where Zapier/Make literally cannot solve
+- Missing webhooks, rate limits, specific data transforms
+
+### C. Newly Created Pain
+- New regulations (AI Act, privacy laws)
+- New platform launches (new API, new ecosystem)
+- Industry disruption (layoffs creating freelancer needs)
+
+### D. "Unsexy" Niches
+Areas VCs ignore but have paying customers
+- Legacy system migrations
+- Boring compliance tasks
+- Industry-specific reporting
