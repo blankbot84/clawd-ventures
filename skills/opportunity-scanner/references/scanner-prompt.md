@@ -1,4 +1,4 @@
-# Scanner Prompt (Phase 1: Discovery)
+# Scanner Prompt v2.0 (Phase 1: Discovery + Auto-Roast)
 
 Use this as the cron job message for the opportunity scanner.
 
@@ -6,99 +6,64 @@ Use this as the cron job message for the opportunity scanner.
 
 Run DEEP micro-SaaS opportunity research.
 
-## LESSONS LEARNED
+## LESSONS LEARNED (9 ideas roasted)
 - Reddit complaints ≠ willingness to pay
 - Free alternatives kill ideas
 - Broad markets are saturated
-- Must verify gaps BEFORE flagging as hot
+- Must verify gaps BEFORE flagging hot
+- Even "validated" ideas can fail deeper scrutiny (Jotboard killed Jamboard idea)
 
-## Search Criteria
+## Search for HIGH-SIGNAL Patterns
 
-### MUST HAVE (Non-negotiable)
-1. **B2B or Prosumer** — Businesses pay, consumers don't
-2. **No good free alternative** — Or free options genuinely suck
-3. **Pain = Money Lost** — Actual $ on the line
-4. **Evidence of PAYMENT** — Already paying for inferior solutions
-
-### KILL SIGNALS (Skip immediately)
-- Consumer apps
-- Markets with good free tools
-- "I wish" without price signals
-- Problems solved by browser extensions
-- Subscription-hostile markets
-
-### HIGH-VALUE SEARCH TERMS
-- "we're paying $X for" + "but it sucks"
-- "looking for alternative to [expensive tool]"
-- "our team needs" + "budget for"
-- "compliance" "audit" "reporting"
-- "agency" "client" "billing" problems
-
-## High-Signal Patterns
-
-**A. Switching Frustration**
-- ❌ SKIP: "I wish there was a tool for X"
-- ✅ FIND: "I've tried A, B, C — they all suck because..."
-
-**B. "I Built My Own" Signal**
-- Devs who rolled their own solution
-- "I wrote a script to..." / "built an internal tool"
-
-**C. Integration Gaps**
-- "I wish [Tool A] talked to [Tool B]"
-- "Zapier can't do X"
-
-**D. Dead Product Mourners**
-- "RIP [product], nothing else does X"
-- Products that shut down with loyal users
-
-**E. Spreadsheet Workarounds**
-- "We use [enterprise tool] but track X in Sheets"
-- The spreadsheet IS the MVP spec
-
-**F. Niche Wedges**
-- NOT "IAM for SMBs" (too broad)
-- YES "HIPAA compliance for dental practices"
+**A. Switching Frustration** - "I've tried A, B, C — all suck because..."
+**B. "I Built My Own"** - Devs maintaining scripts who'd pay to stop
+**C. Integration Gaps** - "Zapier can't do X"
+**D. Dead Product Mourners** - "RIP [product]" (but verify no replacement exists!)
+**E. Spreadsheet Workarounds** - Still manual despite paid tools
+**F. Niche Wedges** - Industry + specific problem = defensible
 
 ## Pre-Roast Check (REQUIRED)
 
 Before flagging HOT:
-1. Search "[problem] software"
-2. Check G2/Capterra
-3. If 3+ established competitors → AUTO-SKIP
+1. Search "[problem] software" AND "[problem] tool"
+2. Check G2/Capterra/Product Hunt
+3. Search for direct competitors by name
+4. If 3+ established competitors → AUTO-SKIP
+5. Check for FREE alternatives (extensions, open source)
 
-## Rating System
+## Rating
 
-🔥 **HOT** — ALL of these:
-- Verified gap
-- Payment evidence
-- Specific niche
-- <2 week build
-- Path to $1k MRR
-
-🌡️ **WARM** — Has potential, needs validation
-
-❄️ **COOL** — Likely saturated or no payment evidence
+🔥 **HOT** — Verified gap + payment evidence + niche + <2wk build
+🌡️ **WARM** — Potential but needs validation
+❄️ **COOL** — Skip (saturated or no payment evidence)
 
 ## Output
 
-Update ideas/RESEARCH-LOG.md with:
-- The gap (what's missing)
-- Competitor check results
-- Evidence links
-- Build estimate
-- Why this ISN'T already solved
+Update ideas/RESEARCH-LOG.md with findings.
 
-## Validation Step
+## AUTO-SPAWN VALIDATOR (Required for HOT)
 
-For 🔥 HOT opportunities, spawn Opus validator:
+For EVERY 🔥 HOT opportunity, you MUST spawn an Opus v2 validator.
 
-```
+Use the template from `references/validator-prompt.md` which includes:
+
+1. 📊 Market Reality - actual numbers
+2. 🔍 Actual Behavior - what people DO
+3. 💀 Free Alternatives - exhaustive search
+4. 💰 Money Path - who pays
+5. 📈 Demand Signals - trends
+6. ⚠️ Risk Assessment - platform risk
+7. 🏗️ Build Reality - true timeline
+
+```javascript
 sessions_spawn({
-  task: "[Use validator-prompt.md template]",
+  task: "[Full v2 validator prompt from validator-prompt.md]",
+  agentId: "murphie", // or your agent
   model: "anthropic/claude-opus-4-5",
-  label: "idea-validator"
+  label: "idea-validator-v2"
 })
 ```
 
-Only spawn for genuinely differentiated B2B opportunities.
+**Do NOT skip this step.** Every hot idea MUST be roasted by Opus before reporting to user.
+
+The scanner's job is to find candidates. The validator's job is to kill them. Only survivors matter.
